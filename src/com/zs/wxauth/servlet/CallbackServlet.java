@@ -51,24 +51,24 @@ public class CallbackServlet extends HttpServlet {
 		System.out.println(user);
 
 		// 1.使用微信用户信息直接登录，无需注册和登录
-		req.setAttribute("info", user);
-		 req.getRequestDispatcher("userInfo.jsp").forward(req, resp);
+		// req.setAttribute("info", user);
+		// req.getRequestDispatcher("userInfo.jsp").forward(req, resp);
 
 		// 2.将微信和当前系统的账号进行绑定
-//		try {
-//			String nickName = getNickName(user.getOpenid());
-//			if (!"".equals(nickName)) {
-//				// 绑定成功
-//				req.setAttribute("nickName", nickName);
-//				req.getRequestDispatcher("/userInfo.jsp").forward(req, resp);
-//			} else {
-//				// 未绑定
-//				req.setAttribute("openid", user.getOpenid());
-//				req.getRequestDispatcher("/login.jsp").forward(req, resp);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			String nickName = getNickName(user.getOpenid());
+			if (!"".equals(nickName)) {
+				// 绑定成功
+				req.setAttribute("info", user);
+				req.getRequestDispatcher("/userInfo.jsp").forward(req, resp);
+			} else {
+				// 未绑定
+				req.setAttribute("openid", user.getOpenid());
+				req.getRequestDispatcher("/login.jsp").forward(req, resp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

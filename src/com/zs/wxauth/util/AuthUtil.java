@@ -22,6 +22,8 @@ public class AuthUtil {
 
 	public static final String TEST_APPID = "wx73834ad5aa2dfaa7";
 	public static final String TEST_APPSECRET = "1f6301ee7a66d882e6afeac6fe07237e";
+	
+	public static final String MADISON_OPENID = "oY5mJw5d7G78pHVkXrwXJVHkDr_Y";
 
 	public static final String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
 	public static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
